@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>League of Legends Helper</title>
+
+    <!-- Style sheets -->
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        #sprite{
+            width:48px;
+            height:48px;
+            background:url(/App_Data/spell4.png) 144px 0;
+        }
+    </style>
+</head>
+
+<body ng-app="championsManagement">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand">League of Legends</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div ng-include="'app/champions/championsView.html'"></div>
+    </div>
+
+    <!-- Library Scripts -->
+    <script src="scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+
+    <!-- Application Script -->
+    <script src="app/app.js"></script>
+
+    <!-- Services -->
+    <script src="common/common.services.js"></script>
+    <script src="common/championsResource.js"></script>
+    <!-- Champions Controllers -->
+    <script src="app/champions/championsCtrl.js"></script>
+</body>
+
+</html>

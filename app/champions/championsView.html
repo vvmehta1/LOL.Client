@@ -1,0 +1,45 @@
+﻿<div class="panel panel-primary"
+     ng-controller="ChampionsCtrl as vm">
+    <div class="panel-heading"
+         style="font-size:large">
+        Champions List
+    </div>
+
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="usr">Search Champion</label>
+               
+            <input type="text" class="form-control" id="sumname" ng-model="vm.searchChampion">
+            
+        </div>
+        <table class="table">
+
+            <thead style="font-weight:bold">
+                <tr>
+                    <td>Name</td>
+                    <td>Title</td>
+                    <td>Q</td>
+                    <td>W</td>
+                    <td>E</td>
+                    <td>R</td>
+                    <td>Image</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="champion in vm.champions | filter:vm.searchChampion">
+                    <td>{{ champion.name}}</td>
+                    <td>{{ champion.title }}</td>
+
+                    <td ng-repeat="spell in champion.spells">
+                        {{ spell.cooldown }}
+                    </td>
+
+                    <td>
+                        <img id="sprite" src="/App_Data/transparent.png"/>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
