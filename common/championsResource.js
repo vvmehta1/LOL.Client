@@ -10,7 +10,7 @@
 
     function championsResource($resource, appSettings)
     {
-        return $resource(appSettings.serverPath + "/api/champions/:id");
+        return $resource(appSettings.serverPath + "/api/champions/:Name");
     }
     
 }());

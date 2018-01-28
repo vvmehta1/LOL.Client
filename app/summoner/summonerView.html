@@ -1,0 +1,37 @@
+﻿<div class="panel panel-primary"
+     ng-controller="SummonerCtrl as vm">
+    <div class="panel-heading"
+         style="font-size:large">
+        Live Game Data
+    </div>
+
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="usr">Search Summoner</label>
+            <div class="form-group row"> 
+                <div class="col-lg-10">
+                    <input type="text" placeholder="Summoner Name" class="form-control" id="sumname" ng-model="vm.searchSummoner">
+                </div>
+                <div class="col-lg-2">
+                    <input type="button" class="btn btn-success btn-block" value="Search" id="searchSummonerButton"                           ng-click="vm.search()">
+                </div>              
+            </div>           
+        </div>
+        <table class="table">
+
+            <thead style="font-weight:bold">
+                <tr>
+                    <td>Summoner Name</td>
+                    <td>Champion Id</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="player in vm.players">
+                    <td>{{ player.summonername}}</td>
+                    <td>{{ player.championid }}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

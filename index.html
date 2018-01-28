@@ -18,29 +18,44 @@
 
 <body ng-app="championsManagement">
     <nav class="navbar navbar-default">
-        <div class="container-fluid">
+        <div class="container-fluid" ng-init="sel = 1;">
             <div class="navbar-header">
                 <div class="navbar-brand">League of Legends</div>
             </div>
+            <ul class="nav nav-pills col-lg-offset-3 ">
+                <li ng-class="{active: sel == 1}">
+                    <a href="#" ng-click="sel = 1;"> Champions </a>
+                </li>
+                <li ng-class="{active: sel == 2}">
+                    <a href="#" ng-click="sel = 2;"> Live Game </a>
+                </li>
+            </ul>
         </div>
+        
     </nav>
 
     <div class="container">
-        <div ng-include="'app/champions/championsView.html'"></div>
+        
+        <div ng-show="sel == 1" ng-include="'app/champions/championsView.html'"></div>
+        <div ng-show="sel == 2" ng-include="'app/summoner/summonerView.html'"></div>
     </div>
 
     <!-- Library Scripts -->
     <script src="scripts/angular.js"></script>
     <script src="Scripts/angular-resource.js"></script>
-
+    <script src="Scripts/angular-route.js"></script>
+    
     <!-- Application Script -->
     <script src="app/app.js"></script>
 
     <!-- Services -->
     <script src="common/common.services.js"></script>
     <script src="common/championsResource.js"></script>
+    <script src="common/summonersResource.js"></script>
     <!-- Champions Controllers -->
     <script src="app/champions/championsCtrl.js"></script>
+    <!-- Summoners Controllers -->
+    <script src="app/summoner/summonerCtrl.js"></script>
 </body>
 
 </html>

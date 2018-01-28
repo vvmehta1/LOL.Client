@@ -9,7 +9,7 @@
         var vm = this;
         vm.searchChampion = '';
         vm.masterdata;
-
+       
         championsResource.query({
             //$filter: "substringof(Name,'Jax')"
             //$filter: "substringof(Name, '" + vm.searchChampion + "')"
