@@ -5,7 +5,7 @@
         Live Game Data
     </div>
 
-    <div class="panel-body">
+    <div class="panel-body" style="background-color:aliceblue">
         <div class="form-group">
             <label for="usr">Search Summoner</label>
             <div class="form-group row"> 
@@ -32,14 +32,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="player in vm.players">
-                    <td>{{player.teamid}}</td>
+                <tr ng-repeat="player in vm.players" ng-style="{'background': '{{player.teamcolor}}'}">
+                    <td>{{player.team}}</td>
                     <td>{{ player.summonername}}</td>
                     <td> <div ng-style="{'height':'{{player.champion.image.h}}px','width':'{{player.champion.image.w}}px','background':'url({{player.champion.image.url}}) -{{player.champion.image.x}}px -{{player.champion.image.y}}px'}" />  </td>
                     <td>{{ player.champion.name }}</td>
 
-                    <td ng-repeat="spell in player.champion.spells">
-                        {{ spell.cooldown }}
+                    <td ng-repeat="spell in player.champion.spells" title="{{spell.description}}">
+                        {{spell.name}}<br /> <b>{{ spell.cooldown }}</b>
                     </td>
                 </tr>
             </tbody>

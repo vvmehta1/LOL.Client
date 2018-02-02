@@ -5,7 +5,7 @@
         Champions List
     </div>
 
-    <div class="panel-body">
+    <div class="panel-body" style="background-color:aliceblue">
         <div class="form-group">
             <label for="usr">Search Champion</label>
                
@@ -17,8 +17,7 @@
             <thead style="font-weight:bold">
                 <tr>
                     <td></td>
-                    <td>Name</td>
-                    <td>Title</td>
+                    <td>Champion</td>
                     <td>Q</td>
                     <td>W</td>
                     <td>E</td>
@@ -28,15 +27,10 @@
             <tbody>
                 <tr ng-repeat="champion in vm.champions | filter:vm.searchChampion">
                     <td> <div ng-style="{'height':'{{champion.image.h}}px','width':'{{champion.image.w}}px','background':'url({{champion.image.url}}) -{{champion.image.x}}px -{{champion.image.y}}px'}" />  </td>
-                    <td>{{ champion.name}}</td>
-                    <td>{{ champion.title }}</td>
-
-                    <td ng-repeat="spell in champion.spells">
-                        {{ spell.cooldown }}
-                    </td>
-
-                    
-
+                    <td><b>{{ champion.name}}</b><br />{{champion.title}}</td>
+                    <td ng-repeat="spell in champion.spells" title="{{spell.description}}">
+                        {{spell.name}}<br /> <b>{{ spell.cooldown }}</b>
+                    </td>           
                 </tr>
             </tbody>
         </table>
