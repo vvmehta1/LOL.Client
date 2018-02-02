@@ -10,26 +10,37 @@
             <label for="usr">Search Summoner</label>
             <div class="form-group row"> 
                 <div class="col-lg-10">
-                    <input type="text" placeholder="Summoner Name" class="form-control" id="sumname" ng-model="vm.searchSummoner">
+                    <input type="text" placeholder="Summoner Name" class="form-control" id="sumname" ng-model="vm.searchSummoner" ng-keyup="$event.keyCode == 13 && vm.search()" >
                 </div>
                 <div class="col-lg-2">
                     <input type="button" class="btn btn-success btn-block" value="Search" id="searchSummonerButton"                           ng-click="vm.search()">
                 </div>              
             </div>           
         </div>
-        <table class="table">
+        <table class="table table-hover">
 
             <thead style="font-weight:bold">
                 <tr>
+                    <td>Team</td>
                     <td>Summoner Name</td>
-                    <td>Champion Id</td>
+                    <td></td>
+                    <td>Champion</td>
+                    <td>Q</td>
+                    <td>W</td>
+                    <td>E</td>
+                    <td>R</td>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="player in vm.players">
+                    <td>{{player.teamid}}</td>
                     <td>{{ player.summonername}}</td>
-                    <td>{{ player.championid }}</td>
+                    <td> <div ng-style="{'height':'{{player.champion.image.h}}px','width':'{{player.champion.image.w}}px','background':'url({{player.champion.image.url}}) -{{player.champion.image.x}}px -{{player.champion.image.y}}px'}" />  </td>
+                    <td>{{ player.champion.name }}</td>
 
+                    <td ng-repeat="spell in player.champion.spells">
+                        {{ spell.cooldown }}
+                    </td>
                 </tr>
             </tbody>
         </table>
