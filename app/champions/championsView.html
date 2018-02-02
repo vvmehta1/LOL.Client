@@ -16,6 +16,7 @@
 
             <thead style="font-weight:bold">
                 <tr>
+                    <td></td>
                     <td>Name</td>
                     <td>Title</td>
                     <td>Q</td>
@@ -26,6 +27,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="champion in vm.champions | filter:vm.searchChampion">
+                    <td> <div ng-style="{'height':'{{champion.image.h}}px','width':'{{champion.image.w}}px','background':'url({{champion.image.url}}) -{{champion.image.x}}px -{{champion.image.y}}px'}" />  </td>
                     <td>{{ champion.name}}</td>
                     <td>{{ champion.title }}</td>
 
